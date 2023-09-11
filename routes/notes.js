@@ -14,4 +14,18 @@ router.get('/', (req, res) => {
 
 });
 
+router.post('/', (req, res) => {
+    const notes = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
+    let newNote = {
+        title: req.body.title,
+        text: req.body.text,
+        id: uuidv4()
+    };
+    notes.push(newNote);
+    fs.writeFileSync('./db/db.json', JSON.stringify(notes));
+    res.json(notes);
+});
+
+
+
 module.exports = router;
