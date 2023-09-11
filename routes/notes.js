@@ -3,6 +3,7 @@ const router = require('express').Router();
 const fs = require('fs');
 const {v4:uuidv4} = require('uuid');
 
+// retireves and displays the notes
 router.get('/', (req, res) => {
     fs.readFile('./db/db.json', (err, data) => {
         if (err) {
@@ -14,6 +15,7 @@ router.get('/', (req, res) => {
 
 });
 
+// places new notes into the data base
 router.post('/', (req, res) => {
     const notes = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
     let newNote = {
@@ -26,6 +28,7 @@ router.post('/', (req, res) => {
     res.json(notes);
 });
 
+// removes a note from the database
 router.delete('/:id', (req, res) => {
     const notes = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
     const newNotes  = notes.filter((note) => {
