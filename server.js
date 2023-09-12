@@ -22,4 +22,4 @@ app.get('/notes', (req, res) =>
 );
 
 
-app.listen(PORT, () => console.log('Express Server on port 3001!'));
+app.listen(PORT, () => console.log(`Express Server at http://localhost:${PORT}`));
