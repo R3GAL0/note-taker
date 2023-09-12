@@ -1,4 +1,4 @@
-# README Generator
+# Note Taker
 
 [Challenge 11 for Max Walent]
 
